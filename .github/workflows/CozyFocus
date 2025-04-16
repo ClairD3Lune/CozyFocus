@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CozyFocus</title>
+</head>
+<body>
+
+</html>
+
+<header>
+    <h1>☕ CozyFocus</h1>
+</header>
+
+<section id="quote-box"> 
+    <p id="quote"> "When life gives you lemons, don't make lemonade! Make life take the lemons back! Get mad! I don't want your damn lemons; what am I supposed to do with these? Demand to see life's manager! Make life rue the day it thought it could give Cave Johnson lemons! Do you know who I am? I'm the man who's gonna burn your house down... with the lemons! I'm gonna get my engineers to invent a combustible lemon that burns your house down!" - Cave Johnson</p>
+</section>
+
+<section>
+    <iframe width="25%" height="150" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1949165127&color=%23030405&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/clair-873626173" title="Clair D3 Lune" target="_blank" style="color: #cccccc; text-decoration: none;">Clair D3 Lune</a> · <a href="https://soundcloud.com/clair-873626173/deep-dive" title="Deep Dive" target="_blank" style="color: #cccccc; text-decoration: none;">Deep Dive</a></div>
+</section>
+
+<section id="timer">
+    <p>Focus Timer: <span id="time">25:00</span></p>
+</section>
+
+
+</body>
+</html>
