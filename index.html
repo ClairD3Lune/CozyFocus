@@ -79,12 +79,32 @@
     #reset-btn {
       position: absolute;
       width: 50px;
-      top: 140px;
-      right: 0px;
+      top: 45px;
+      right: 300px;
       border: none;
       padding: 0;
       cursor: pointer;
     }
+
+   #add-btn{
+    position: absolute;
+      width: 50px;
+      top: -10px;
+      right: 300px;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+   }
+
+   #unadd-btn{
+    position: absolute;
+      width: 50px;
+      top: 100px;
+      right: 300px;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+   }
 
     button img {
   width: 54px;     /* Set the width of the image (you can adjust this) */
@@ -139,10 +159,12 @@
 
 <!--Timer-->
   <section id="timer">
-    <p><span id="time">25:00</span></p>
+    <p><span id="time">05:00</span></p>
     <button id="start-btn"><img src="Start.png" alt="Start button" /></button>
     <button id="stop-btn"><img src="Stop.png" alt="Stop Button"/></button>
     <button id="reset-btn"><img src="Reset.png" alt="Reset Button"/></button>
+    <button id="add-btn"><img src="Timeup.png" alt="+10 minutes"/></button>
+    <button id="unadd-btn"><img src="Timedown.png" alt="-10 minutes"/></button>
   </section>
 
   <section id="timer-frame">
@@ -151,14 +173,16 @@
 
 <!--Timer Script-->
   <script>
-    let timeLeft = 25 * 60;
+    let timeLeft = 5 * 60;
     let timerInterval; // Variable to store the interval ID
   
     const timerDisplay = document.getElementById("time");
     const startButton = document.getElementById("start-btn");
     const stopButton = document.getElementById("stop-btn");
     const resetButton = document.getElementById("reset-btn")
-  
+    const add10Button = document.getElementById("add-btn");
+    const unadd10Button = document.getElementById("unadd-btn");
+
     // Function to format seconds into MM:SS
     function formatTime(seconds) {
       const mins = Math.floor(seconds / 60);
@@ -195,6 +219,25 @@ resetButton.addEventListener("click", function() {
   timeLeft = 25 * 60; // Reset to 25 minutes
   timerDisplay.textContent = formatTime(timeLeft); // Update display
 });
+
+add10Button.addEventListener("click", function() {
+  if (timeLeft + 300 <= 60 * 60) { // 300 sec = 5 mins
+    timeLeft += 300;
+  } else {
+    timeLeft = 60 * 60; // Cap at 60 mins
+  }
+  timerDisplay.textContent = formatTime(timeLeft);
+});
+
+unadd10Button.addEventListener("click", function() {
+  if (timeLeft - 300 >= 5 * 60) { // -300 = -5mins
+    timeLeft -= 300;
+  } else {
+    timeLeft = 5 * 60; // Cap at 5 mins
+  }
+  timerDisplay.textContent = formatTime(timeLeft);
+});
+
   </script>  
 
 </body>
