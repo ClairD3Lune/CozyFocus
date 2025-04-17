@@ -180,8 +180,8 @@
     const startButton = document.getElementById("start-btn");
     const stopButton = document.getElementById("stop-btn");
     const resetButton = document.getElementById("reset-btn")
-    const add10Button = document.getElementById("add-btn");
-    const unadd10Button = document.getElementById("unadd-btn");
+    const add5Button = document.getElementById("add-btn");
+    const unadd5Button = document.getElementById("unadd-btn");
 
     // Function to format seconds into MM:SS
     function formatTime(seconds) {
@@ -220,7 +220,7 @@ resetButton.addEventListener("click", function() {
   timerDisplay.textContent = formatTime(timeLeft); // Update display
 });
 
-add10Button.addEventListener("click", function() {
+add5Button.addEventListener("click", function() {
   if (timeLeft + 300 <= 60 * 60) { // 300 sec = 5 mins
     timeLeft += 300;
   } else {
@@ -229,7 +229,7 @@ add10Button.addEventListener("click", function() {
   timerDisplay.textContent = formatTime(timeLeft);
 });
 
-unadd10Button.addEventListener("click", function() {
+unadd5Button.addEventListener("click", function() {
   if (timeLeft - 300 >= 5 * 60) { // -300 = -5mins
     timeLeft -= 300;
   } else {
