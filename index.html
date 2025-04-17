@@ -200,6 +200,7 @@
   
     // Start button function
     startButton.addEventListener("click", function() {
+      playClick();
       // Only start the timer if it's not already running
       if (!timerInterval) {
         timerInterval = setInterval(updateTimer, 1000); // Start the countdown
@@ -208,12 +209,14 @@
   
     // Stop button function
     stopButton.addEventListener("click", function() {
+      playClick();
       clearInterval(timerInterval); // Stop the countdown
       timerInterval = null; // Reset the interval variable
     });
 
     // Reset button function
 resetButton.addEventListener("click", function() {
+  playClick();
   clearInterval(timerInterval); // Stop the countdown
   timerInterval = null; // Reset the interval variable
   timeLeft = 5 * 60; // Reset to 5 minutes
@@ -221,6 +224,7 @@ resetButton.addEventListener("click", function() {
 });
 
 add5Button.addEventListener("click", function() {
+  playClick();
   if (timeLeft + 300 <= 60 * 60) { // 300 sec = 5 mins
     timeLeft += 300;
   } else {
@@ -230,6 +234,7 @@ add5Button.addEventListener("click", function() {
 });
 
 unadd5Button.addEventListener("click", function() {
+  playClick();
   if (timeLeft - 300 >= 5 * 60) { // -300 = -5mins
     timeLeft -= 300;
   } else {
@@ -239,6 +244,16 @@ unadd5Button.addEventListener("click", function() {
 });
 
   </script>  
+
+<script>
+  const clickSound = new Audio("click.mp3");
+
+  function playClick() { 
+    clickSound.currentTime = 0;
+    clickSound.play();
+}
+</script>
+
 
 </body>
 </html>
