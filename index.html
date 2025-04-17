@@ -4,37 +4,178 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CozyFocus</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
   <style>
     body {
-        background-image: url("background.jpg");
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        height: 100vh;
-        margin: 0;        
+      background-image: url("background.jpeg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      height: 100vh;
+      margin: 0;
+      color: white;
+      font-family: 'Poetsen One', sans-serif;
     }
+
+    header h1 {
+      color: #ffb6c1;
+      padding: 20px;
+    }
+
+    header h2 {
+      color: #e960d2;
+      position: absolute;
+      top: 7%;
+      left: 6px;
+    }
+    #quote-box {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%);
+      padding: 20px;
+      width: 30%;
+    }
+
+    #quote {
+      font-size: 1.2rem;
+      color: #ffccf9;
+      text-shadow: 1px 1px 2px #000;
+    }
+
+    button {
+      background: transparent;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+    }
+
+    #start-btn {
+      position: absolute;
+      width: 80px;
+      top: 140px;
+      right: 120px;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      }
+
+      #stop-btn {
+      position: absolute;
+      width: 50px;
+      top: 140px;
+      right: 90px;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+    }
+
+    button img {
+  width: 54px;     /* Set the width of the image (you can adjust this) */
+  height: auto;    /* Keep the aspect ratio of the image */
+  display: block;  /* Remove any extra spacing below the image */
+}
+
+#timer {
+      position: absolute;
+      top: 25px;
+      right:35px;
+      font-size: 50px;
+    }
+
+#time {
+  font-family: "Press Start 2P", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  color: #0b1b01;
+  text-shadow: 0 0 10px #a3e796;
+}
+
+#timer-frame {
+  position: absolute;
+  right: 10px;
+  top: 2%;
+  z-index: -1;
+}
+
   </style>
 </head>
+
 <body>
+  <header>
+    <h1>☕ Internet RestSpot</h1>
+    <h2>Your cozy lil corner for vibes, focus & peace</h2>
+  </header>
+<!--Quote Box-->
+  <section id="quote-box"> 
+    <p id="quote">
+      "When life gives you lemons, don't make lemonade! Make life take the lemons back! Get mad! I don't want your damn lemons; what am I supposed to do with these? Demand to see life's manager! Make life rue the day it thought it could give Cave Johnson lemons! I'm the man who's gonna burn your house down... with the lemons!" - Cave Johnson
+    </p>
+  </section>
 
-</html>
+<!--Audio-->
+  <section>
+    <audio controls autoplay loop> 
+      <source src="cozyfocus-remix.MP3" type="audio/mpeg">
+      Your browser is being a hater and does not support audio :(
+    </audio>
+  </section>
 
-<header>
-    <h1>☕ CozyFocus</h1>
-</header>
+<!--Timer-->
+  <section id="timer">
+    <p><span id="time">25:00</span></p>
+    <button id="start-btn"><img src="Start.png" alt="Start button" /></button>
+    <button id="stop-btn"><img src="Stop.png" alt="Stop Button"/></button>
+  </section>
 
-<section id="quote-box"> 
-    <p id="quote"> "When life gives you lemons, don't make lemonade! Make life take the lemons back! Get mad! I don't want your damn lemons; what am I supposed to do with these? Demand to see life's manager! Make life rue the day it thought it could give Cave Johnson lemons! Do you know who I am? I'm the man who's gonna burn your house down... with the lemons! I'm gonna get my engineers to invent a combustible lemon that burns your house down!" - Cave Johnson</p>
-</section>
+  <section id="timer-frame">
+    <img src="Timeframe.png"/>
+  </section>
 
-<section>
-    <iframe width="25%" height="150" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1949165127&color=%23030405&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/clair-873626173" title="Clair D3 Lune" target="_blank" style="color: #cccccc; text-decoration: none;">Clair D3 Lune</a> · <a href="https://soundcloud.com/clair-873626173/deep-dive" title="Deep Dive" target="_blank" style="color: #cccccc; text-decoration: none;">Deep Dive</a></div>
-</section>
-
-<section id="timer">
-    <p>Focus Timer: <span id="time">25:00</span></p>
-</section>
-
+<!--Timer Script-->
+  <script>
+    let timeLeft = 25 * 60;
+    let timerInterval; // Variable to store the interval ID
+  
+    const timerDisplay = document.getElementById("time");
+    const startButton = document.getElementById("start-btn");
+    const stopButton = document.getElementById("stop-btn");
+  
+    // Function to format seconds into MM:SS
+    function formatTime(seconds) {
+      const mins = Math.floor(seconds / 60);
+      const secs = seconds % 60;
+      return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+    }
+  
+    // Function to update the timer
+    function updateTimer() {
+      if (timeLeft > 0) {
+        timeLeft--;
+        timerDisplay.textContent = formatTime(timeLeft);
+      }
+    }
+  
+    // Start button function
+    startButton.addEventListener("click", function() {
+      // Only start the timer if it's not already running
+      if (!timerInterval) {
+        timerInterval = setInterval(updateTimer, 1000); // Start the countdown
+      }
+    });
+  
+    // Stop button function
+    stopButton.addEventListener("click", function() {
+      clearInterval(timerInterval); // Stop the countdown
+      timerInterval = null; // Reset the interval variable
+    });
+  </script>  
 
 </body>
 </html>
