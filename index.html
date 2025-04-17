@@ -76,6 +76,16 @@
       cursor: pointer;
     }
 
+    #reset-btn {
+      position: absolute;
+      width: 50px;
+      top: 140px;
+      right: 0px;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+    }
+
     button img {
   width: 54px;     /* Set the width of the image (you can adjust this) */
   height: auto;    /* Keep the aspect ratio of the image */
@@ -132,6 +142,7 @@
     <p><span id="time">25:00</span></p>
     <button id="start-btn"><img src="Start.png" alt="Start button" /></button>
     <button id="stop-btn"><img src="Stop.png" alt="Stop Button"/></button>
+    <button id="reset-btn"><img src="Reset.png" alt="Reset Button"/></button>
   </section>
 
   <section id="timer-frame">
@@ -146,6 +157,7 @@
     const timerDisplay = document.getElementById("time");
     const startButton = document.getElementById("start-btn");
     const stopButton = document.getElementById("stop-btn");
+    const resetButton = document.getElementById("reset-btn")
   
     // Function to format seconds into MM:SS
     function formatTime(seconds) {
@@ -175,6 +187,14 @@
       clearInterval(timerInterval); // Stop the countdown
       timerInterval = null; // Reset the interval variable
     });
+
+    // Reset button function
+resetButton.addEventListener("click", function() {
+  clearInterval(timerInterval); // Stop the countdown
+  timerInterval = null; // Reset the interval variable
+  timeLeft = 25 * 60; // Reset to 25 minutes
+  timerDisplay.textContent = formatTime(timeLeft); // Update display
+});
   </script>  
 
 </body>
