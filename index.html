@@ -211,6 +211,9 @@
         timeLeft--;
         timerDisplay.textContent = formatTime(timeLeft);
       }
+      if (timeLeft <= 0) {
+        playAlarm();
+      }
     }
 
     // Start button functionality
@@ -233,7 +236,7 @@
       playClick();
       clearInterval(timerInterval);
       timerInterval = null;
-      timeLeft = 5 * 60;
+      timeLeft = 1 * 60;
       timerDisplay.textContent = formatTime(timeLeft);
     });
 
@@ -269,6 +272,12 @@
     function playClick() {
       clickSound.currentTime = 0;
       clickSound.play();
+    }
+
+    const alarmSound = new Audio("alarm.mp3")
+    function playAlarm() {
+      alarmSound.currentTime = 0;
+      alarmSound.play();
     }
 
     // Lofi remix function
