@@ -4,13 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CozyFocus</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap" rel="stylesheet">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 
+  <!-- Styles -->
   <style>
     body {
       background-image: url("background.jpeg");
@@ -34,6 +33,8 @@
       top: 7%;
       left: 6px;
     }
+
+    /* Quote Box */
     #quote-box {
       position: absolute;
       top: 50%;
@@ -49,6 +50,7 @@
       text-shadow: 1px 1px 2px #000;
     }
 
+    /* Buttons */
     button {
       background: transparent;
       border: none;
@@ -56,204 +58,222 @@
       cursor: pointer;
     }
 
-    #start-btn {
-      position: absolute;
-      width: 80px;
-      top: 140px;
-      right: 120px;
-      border: none;
-      padding: 0;
-      cursor: pointer;
-      }
-
-      #stop-btn {
-      position: absolute;
-      width: 50px;
-      top: 140px;
-      right: 90px;
-      border: none;
-      padding: 0;
-      cursor: pointer;
-    }
-
-    #reset-btn {
-      position: absolute;
-      width: 50px;
-      top: 45px;
-      right: 300px;
-      border: none;
-      padding: 0;
-      cursor: pointer;
-    }
-
-   #add-btn{
-    position: absolute;
-      width: 50px;
-      top: -10px;
-      right: 300px;
-      border: none;
-      padding: 0;
-      cursor: pointer;
-   }
-
-   #unadd-btn{
-    position: absolute;
-      width: 50px;
-      top: 100px;
-      right: 300px;
-      border: none;
-      padding: 0;
-      cursor: pointer;
-   }
-
     button img {
-  width: 54px;     /* Set the width of the image (you can adjust this) */
-  height: auto;    /* Keep the aspect ratio of the image */
-  display: block;  /* Remove any extra spacing below the image */
-}
+      width: 54px;
+      height: auto;
+      display: block;
+    }
 
-#timer {
+    /* Timer */
+    #timer {
       position: absolute;
       top: 25px;
-      right:35px;
+      right: 35px;
       font-size: 50px;
     }
 
-#time {
-  font-family: "Press Start 2P", system-ui;
-  font-weight: 400;
-  font-style: normal;
-  color: #0b1b01;
-  text-shadow: 0 0 10px #a3e796;
-}
+    #time {
+      font-family: "Press Start 2P", system-ui;
+      font-weight: 400;
+      font-style: normal;
+      color: #0b1b01;
+      text-shadow: 0 0 10px #a3e796;
+    }
 
-#timer-frame {
-  position: absolute;
-  right: 10px;
-  top: 2%;
-  z-index: -1;
-}
+    /* Timer Buttons */
+    #start-btn, #stop-btn, #reset-btn, #add-btn, #unadd-btn {
+      position: absolute;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+    }
+
+    #start-btn {
+      top: 140px;
+      right: 140px;
+    }
+
+    #stop-btn {
+      top: 140px;
+      right: 90px;
+    }
+
+    #reset-btn {
+      top: 45px;
+      right: 295px;
+    }
+
+    #add-btn {
+      top: -10px;
+      right: 295px;
+    }
+
+    #unadd-btn {
+      top: 100px;
+      right: 295px;
+    }
+
+    /* Timer Frame */
+    #timer-frame {
+      position: absolute;
+      right: 10px;
+      top: 2%;
+      z-index: -1;
+    }
+
+     /* Jukebox */
+     #jukebox img{
+      width: 260px;
+      height: 400px;
+      position: absolute;
+      bottom: 2px;
+      right: 0px;
+    }  
 
   </style>
 </head>
 
 <body>
+
   <header>
     <h1>☕ Internet RestSpot</h1>
     <h2>Your cozy lil corner for vibes, focus & peace</h2>
   </header>
-<!--Quote Box-->
-  <section id="quote-box"> 
+
+  <!-- Quote Box -->
+  <section id="quote-box">
     <p id="quote">
-      "When life gives you lemons, don't make lemonade! Make life take the lemons back! Get mad! I don't want your damn lemons; what am I supposed to do with these? Demand to see life's manager! Make life rue the day it thought it could give Cave Johnson lemons! I'm the man who's gonna burn your house down... with the lemons!" - Cave Johnson
+      "When life gives you lemons, don't make lemonade! Make life take the lemons back! Get mad! I don't want your damn lemons..." - Cave Johnson
     </p>
   </section>
 
-<!--Audio-->
-  <section>
-    <audio controls autoplay loop> 
-      <source src="cozyfocus-remix.MP3" type="audio/mpeg">
-      Your browser is being a hater and does not support audio :(
-    </audio>
+  <!-- Jukebox Audio -->
+  <section id="jukebox-audio">
+    <button id="jukebox"><img src="jukebox.png" alt="Jukebox"></button>
   </section>
 
-<!--Timer-->
+  <!-- Timer -->
   <section id="timer">
     <p><span id="time">05:00</span></p>
     <button id="start-btn"><img src="Start.png" alt="Start button" /></button>
-    <button id="stop-btn"><img src="Stop.png" alt="Stop Button"/></button>
-    <button id="reset-btn"><img src="Reset.png" alt="Reset Button"/></button>
-    <button id="add-btn"><img src="Timeup.png" alt="+10 minutes"/></button>
-    <button id="unadd-btn"><img src="Timedown.png" alt="-10 minutes"/></button>
+    <button id="stop-btn"><img src="Stop.png" alt="Stop Button" /></button>
+    <button id="reset-btn"><img src="Reset.png" alt="Reset Button" /></button>
+    <button id="add-btn"><img src="Timeup.png" alt="+10 minutes" /></button>
+    <button id="unadd-btn"><img src="Timedown.png" alt="-10 minutes" /></button>
   </section>
 
+  <!-- Timer Frame -->
   <section id="timer-frame">
-    <img src="Timeframe.png"/>
+    <img src="Timeframe.png" />
   </section>
 
-<!--Timer Script-->
+  <!-- Timer Script -->
   <script>
+    // Timer Variables
     let timeLeft = 5 * 60;
-    let timerInterval; // Variable to store the interval ID
-  
+    let timerInterval;
+
     const timerDisplay = document.getElementById("time");
     const startButton = document.getElementById("start-btn");
     const stopButton = document.getElementById("stop-btn");
-    const resetButton = document.getElementById("reset-btn")
+    const resetButton = document.getElementById("reset-btn");
     const add5Button = document.getElementById("add-btn");
     const unadd5Button = document.getElementById("unadd-btn");
+    const jukeboxButton = document.getElementById("jukebox");
 
-    // Function to format seconds into MM:SS
+    // Function to format time as MM:SS
     function formatTime(seconds) {
       const mins = Math.floor(seconds / 60);
       const secs = seconds % 60;
       return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
     }
-  
-    // Function to update the timer
+
+    // Function to update timer
     function updateTimer() {
       if (timeLeft > 0) {
         timeLeft--;
         timerDisplay.textContent = formatTime(timeLeft);
       }
     }
-  
-    // Start button function
+
+    // Start button functionality
     startButton.addEventListener("click", function() {
       playClick();
-      // Only start the timer if it's not already running
       if (!timerInterval) {
-        timerInterval = setInterval(updateTimer, 1000); // Start the countdown
+        timerInterval = setInterval(updateTimer, 1000); // Start timer
       }
     });
-  
-    // Stop button function
+
+    // Stop button functionality
     stopButton.addEventListener("click", function() {
       playClick();
-      clearInterval(timerInterval); // Stop the countdown
-      timerInterval = null; // Reset the interval variable
+      clearInterval(timerInterval);
+      timerInterval = null;
     });
 
-    // Reset button function
-resetButton.addEventListener("click", function() {
-  playClick();
-  clearInterval(timerInterval); // Stop the countdown
-  timerInterval = null; // Reset the interval variable
-  timeLeft = 5 * 60; // Reset to 5 minutes
-  timerDisplay.textContent = formatTime(timeLeft); // Update display
-});
+    // Reset button functionality
+    resetButton.addEventListener("click", function() {
+      playClick();
+      clearInterval(timerInterval);
+      timerInterval = null;
+      timeLeft = 5 * 60;
+      timerDisplay.textContent = formatTime(timeLeft);
+    });
 
-add5Button.addEventListener("click", function() {
-  playClick();
-  if (timeLeft + 300 <= 60 * 60) { // 300 sec = 5 mins
-    timeLeft += 300;
-  } else {
-    timeLeft = 60 * 60; // Cap at 60 mins
-  }
-  timerDisplay.textContent = formatTime(timeLeft);
-});
+    // Add 5 minutes button functionality
+    add5Button.addEventListener("click", function() {
+      playClick();
+      if (timeLeft + 300 <= 60 * 60) {
+        timeLeft += 300;
+      } else {
+        timeLeft = 60 * 60;
+      }
+      timerDisplay.textContent = formatTime(timeLeft);
+    });
 
-unadd5Button.addEventListener("click", function() {
-  playClick();
-  if (timeLeft - 300 >= 5 * 60) { // -300 = -5mins
-    timeLeft -= 300;
-  } else {
-    timeLeft = 5 * 60; // Cap at 5 mins
-  }
-  timerDisplay.textContent = formatTime(timeLeft);
-});
+    // Subtract 5 minutes button functionality
+    unadd5Button.addEventListener("click", function() {
+      playClick();
+      if (timeLeft - 300 >= 5 * 60) {
+        timeLeft -= 300;
+      } else {
+        timeLeft = 5 * 60;
+      }
+      timerDisplay.textContent = formatTime(timeLeft);
+    });
 
-  </script>  
+    // Jukebox functionality
+    jukeboxButton.addEventListener("click", function() {
+      playRemix();
+    });
 
-<script>
-  const clickSound = new Audio("click.mp3");
+    // Click sound function
+    const clickSound = new Audio("click.mp3");
+    function playClick() {
+      clickSound.currentTime = 0;
+      clickSound.play();
+    }
 
-  function playClick() { 
-    clickSound.currentTime = 0;
-    clickSound.play();
-}
-</script>
+    // Lofi remix function
+    const lofiRemix = new Audio("cozyfocus-remix.MP3");
+    lofiRemix.loop = true; // only set this once
 
+    let isRemixPlaying = false;
+
+    function playRemix() {
+      if (isRemixPlaying === true) {
+        lofiRemix.pause();
+      } else {
+       lofiRemix.play();
+      }
+      isRemixPlaying = !isRemixPlaying;
+    }
+
+    // Optional safety net: resets flag if it ever finishes (just in case you turn off loop)
+    lofiRemix.addEventListener("ended", () => {
+      isRemixPlaying = false;
+    });
+  </script>
 
 </body>
 </html>
