@@ -130,6 +130,39 @@
       right: 0px;
     }  
 
+    /* Button Styling */
+#silentcafe-btn-container {
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 20px;
+}
+
+.silentcafe-btn {
+  background-color: #ffccf9; /* Soft pink background */
+  color: #5E8B7E; /* Subtle greenish text */
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  text-decoration: none;
+  border-radius: 50px;
+  font-family: 'Poetsen One', sans-serif;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.silentcafe-btn:hover {
+  background-color: #e960d2; /* Darker pink */
+  color: white;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+  transform: scale(1.05); /* Button grows slightly on hover */
+}
+
+.silentcafe-btn:active {
+  transform: scale(1); /* Button returns to original size on click */
+}
+
+
   </style>
 </head>
 
@@ -183,6 +216,12 @@
   <section id="timer-frame">
     <img src="Timeframe.png" />
   </section>
+
+  <!-- Button Linking to SilentCafe -->
+<section id="silentcafe-btn-container">
+  <a href="https://claird3lune.github.io/SilentCafe/#menu" class="silentcafe-btn">Check Out the Menu!</a>
+</section>
+
 
   <!-- Timer Script -->
   <script>
